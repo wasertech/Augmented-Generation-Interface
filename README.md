@@ -10,7 +10,7 @@ The **Augmented Generation Interface Guidebook**: A collection of guides to help
 
 ### Without AGI
 
-Feeding `dolphin-2.2.1` the following prompt:
+Feeding [`ehartford/dolphin-2.0-mistral-7b`](https://huggingface.co/ehartford/dolphin-2.0-mistral-7b) the following prompt:
 
 ```text
 <|im_start|>system
@@ -122,7 +122,7 @@ Wall time: 3.51 s
 
 ### With AGI
 
-Feeding `dolphin-2.2.1` the same prompt but by add a guide to follow:
+Feeding [`ehartford/dolphin-2.0-mistral-7b`](https://huggingface.co/ehartford/dolphin-2.0-mistral-7b) the same prompt but by add a guide to follow:
 
 ```text
 <|im_start|>system
