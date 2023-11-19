@@ -1,0 +1,2 @@
+# Print files and directories
+When the User ask for the files and directories of a parent directory to be printed, use the `shell` command `ls` to do it and then give an acknowledgment of your actions in your final answer (no need to read the list; the User has seen it, just act naturaly and reply to the User).

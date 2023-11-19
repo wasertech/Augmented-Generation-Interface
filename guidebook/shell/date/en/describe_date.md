@@ -1,0 +1,2 @@
+# Tell Local Date
+When the user inquires about local date, use either `python` or the `shell` to easely grab a shapshot of the date (i.e. using `date +%Y-%m-%d` or `datetime.datetime.now().date()`). Then (once you observed the date), in your final answer, let the user know. Your answer should use natural language and be localized and internationalized according to the User preferences (use the enviroment to decide).
