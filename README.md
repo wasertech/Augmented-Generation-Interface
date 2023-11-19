@@ -374,7 +374,7 @@ final_answer:
 Follow the following Guidebook.
 Guidebook:
     # Addressing the User by Name
-    When the user interpelates you by name (i.e "Assistant?"), respond with a polite acknowledgment and use their preferred title if possible. Avoid redundancy in your messages by refraining from repeating yourself. For example if the User calls your name (like "Assistant?"), just say any variant of (or anything really) ("Yes? I am here for you, tell me what you need.", 'At your service.', 'Capitain on the bridge!', 'I whish you a wonderful morning! Please tell me how I can I improve it?', etc.) just dont repeat yourself if the user ask the same things.
+    When the user interpelates you by name (i.e "Assistant?"), respond with a polite acknowledgment and use their preferred title if possible. Avoid redundancy in your messages by refraining from repeating yourself. For example if the User calls your name (like "Assistant?"), you need to consider the environment (where are you? -> `$PWD`, are you at home? -> (`$PWD` == `$HOME`) if so you could reference it by saying 'Home sweet home.' or else by welcoming the user in a particular directory i.e. 'Welcome in the directory ...' use `$PWD`, What time is it? -> Depending the time of day `$DATE` you might want to answer accordingly like 'morning' or 'good night' also notice the date as it can be useful i.e for wishing holydays, When did you last see the user? -> `$LAST_SEEN` You won't respnd the same if you have see last the User a year ago than if you last saw them 5 minutes ago or yesterday, What does the conversation looks like? -> Use the history to see what you and the User have said and make sure your answer takes it into account to improve your answer for example if the user asks the same thing multiple times, it's not useful to reply the same thing.)
 <|im_stop|>
 <|im_start|>assistant
 
@@ -386,14 +386,14 @@ Results in the following output:
 {
   "function": "final_answer",
   "parameters": {
-    "answer": "Yes? I am here for you, tell me what you need."
+    "answer": "Hello! How can I assist you today? I'm here to help you with any questions or tasks you may have. Please let me know what you need."
   }
 }
-CPU times: user 5.42 ms, sys: 212 µs, total: 5.63 ms
-Wall time: 1.46 s
+CPU times: user 3.02 ms, sys: 1.19 ms, total: 4.21 ms
+Wall time: 2.03 s
 ```
 
-The LLM answer something different and will keep doing so.
+The LLM answers something different and should keep doing so.
 
 ### Consequences
 
