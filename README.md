@@ -4,7 +4,7 @@
 
 ## Introducing
 
-The **Augmented Generation Interface Guidebook**: A collection of guides to help you guide your LLM to success.
+The **Augmented Generation Interface Guidebook** is a collection of guides to help you guide your LLM to success.
 
 ## Example
 
