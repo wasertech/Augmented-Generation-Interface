@@ -394,3 +394,9 @@ Wall time: 1.46 s
 ```
 
 The LLM answer something different and will keep doing so.
+
+### Consequences
+
+And so it becomes integral to collect carefully crafted guides to help your LLM as Agent (a.k.a your Assistant) to be more relevant to the User expectations.
+
+Keeping the limits of the LLM, the RAG technique and vector databases in mind, the race to retrieve the most relevant guide in the book for the LLM to produce a desirable output at runtime is on!
