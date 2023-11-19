@@ -122,7 +122,7 @@ Wall time: 3.51 s
 
 ### With AGI
 
-Feeding [`ehartford/dolphin-2.0-mistral-7b`](https://huggingface.co/ehartford/dolphin-2.0-mistral-7b) the same prompt but by add a guide to follow:
+Feeding [`ehartford/dolphin-2.0-mistral-7b`](https://huggingface.co/ehartford/dolphin-2.0-mistral-7b) the same prompt but this time, let's add a guide for the LLM to follow:
 
 ```text
 <|im_start|>system
