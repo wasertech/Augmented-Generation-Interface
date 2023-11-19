@@ -219,3 +219,8 @@ And therefore, much faster to generate:
 CPU times: user 5.43 ms, sys: 0 ns, total: 5.43 ms
 Wall time: 1.05 s
 ```
+
+
+## Goals
+
+AGI is not designed to make your LLM generation faster, just more relevant to the User expectations.
