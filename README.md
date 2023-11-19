@@ -221,6 +221,6 @@ Wall time: 1.05 s
 ```
 
 
-## Goals
+## Goal
 
 AGI is not designed to make your LLM generation faster, just more relevant to the User expectations.
