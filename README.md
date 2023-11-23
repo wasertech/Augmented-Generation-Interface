@@ -400,3 +400,125 @@ The LLM answers something different and should keep doing so.
 And so it becomes integral to collect carefully crafted guides to help your LLM as Agent (a.k.a your Assistant) to be more relevant to the User expectations.
 
 Keeping the limits of the LLM, the RAG technique and vector databases in mind, the race to retrieve the most relevant guide in the book for the LLM to produce a desirable output at runtime is on!
+
+## How does it work?
+
+This project is composed of two parts:
+    - The Guidebook
+    - The Augmented Generation Interface Retrieval System
+  
+### The Guidebook
+
+You can find the guidebook in raw markdown format under the `guidebook` directory. Its also available on HuggingFace Hub as a dataset: [`wasertech/AGI`](https://huggingface.co/datasets/wasertech/AGI).
+
+The guidebook is a collection of guides meticulously crafted to help your LLM produce the most relevant output.
+
+Each guide is composed of an action in the form of a title, a guide in the form of a description and a list of intent examples.
+
+```
+# Print files and directories
+
+When the User ask for the files and directories of a parent directory to be printed, use the `shell` command `ls` to do it and then give an acknowledgment of your actions in your final answer (Your final answer should never contain a list of the files requested; the User can oberserve the shell, they see the files at the same time as you. Just acknowlege the fact that you have printed the list).
+
+## Intent Examples
+
+- "Print the files and directories of the current directory."
+- "Print the files and directories of the parent directory."
+- "Print the files and directories of the directory above."
+- "Print the files and directories of the directory below."
+- "List the files and directories"
+- "What do we have here?"
+- "What is in this directory?"
+- "What is in the current directory?"
+- "What is in the parent directory?"
+- "List the files and directories of the current directory."
+- "ls please"
+- "ls"
+- "ls -l"
+- "ls -a"
+- "ls -la"
+- "ls -al"
+- "ls -lh"
+- "ls -hl"
+- "ls -lha"
+- "ls -lah"
+- "ls -alh"
+- "ls -ahl"
+- "show me whats in the current directory"
+```
+
+Each guide is then loaded into the AGI Retrieval System where it will be processed and indexed for retrieval.
+
+### The AGI Retrieval System
+
+The AGI Retrieval System is a collection of tools to help you retrieve the most relevant guide at runtime.
+
+First the AGI Retrieval System will process the guidebook and index it for retrieval.
+
+This step is crutial to find the most relevant guide for the user query at runtime.
+
+It will split the documents and keep a map of the guide, the action to perform and the intent examples.
+
+```python
+    {
+        ...
+        'Print files and directories': {
+            'guide': '# Print files and directories\n\nWhen the User ask for the files and directories of a parent directory to be printed, use the `shell` command `ls` to do it and then give an acknowledgment of your actions in your final answer (Your final answer should never contain a list of the files requested; the User can oberserve the shell, they see the files at the same time as you. Just acknowlege the fact that you have printed the list).',
+            'intent_examples': [
+                'Print the files and directories of the current directory.',
+                'Print the files and directories of the parent directory.',
+                'Print the files and directories of the directory above.',
+                'Print the files and directories of the directory below.',
+                'List the files and directories',
+                'What do we have here?',
+                'What is in this directory?',
+                'What is in the current directory?',
+                'What is in the parent directory?',
+                'List the files and directories of the current directory.',
+                'ls please',
+                'ls',
+                'ls -l',
+                'ls -a',
+                'ls -la',
+                'ls -al',
+                'ls -lh',
+                'ls -hl',
+                'ls -lha',
+                'ls -lah',
+                'ls -alh',
+                'ls -ahl',
+                'show me whats in the current directory'
+            ]
+        },
+        ...
+    }
+```
+
+Next it creates documents with metadata from the intent examples to create our retriver.
+
+```python
+...
+Document(page_content='Print the files and directories of the current directory.', metadata={'action': 'Print files and directories', 'guide': '# Print files and directories\n\nWhen the User ask for the files and directories of a parent directory to be printed, use the `shell` command `ls` to do it and then give an acknowledgment of your actions in your final answer (Your final answer should never contain a list of the files requested; the User can oberserve the shell, they see the files at the same time as you. Just acknowlege the fact that you have printed the list).'}),
+ Document(page_content='Print the files and directories of the parent directory.', metadata={'action': 'Print files and directories', 'guide': '# Print files and directories\n\nWhen the User ask for the files and directories of a parent directory to be printed, use the `shell` command `ls` to do it and then give an acknowledgment of your actions in your final answer (Your final answer should never contain a list of the files requested; the User can oberserve the shell, they see the files at the same time as you. Just acknowlege the fact that you have printed the list).'}),
+ Document(page_content='Print the files and directories of the directory above.', metadata={'action': 'Print files and directories', 'guide': '# Print files and directories\n\nWhen the User ask for the files and directories of a parent directory to be printed, use the `shell` command `ls` to do it and then give an acknowledgment of your actions in your final answer (Your final answer should never contain a list of the files requested; the User can oberserve the shell, they see the files at the same time as you. Just acknowlege the fact that you have printed the list).'}),
+ Document(page_content='Print the files and directories of the directory below.', metadata={'action': 'Print files and directories', 'guide': '# Print files and directories\n\nWhen the User ask for the files and directories of a parent directory to be printed, use the `shell` command `ls` to do it and then give an acknowledgment of your actions in your final answer (Your final answer should never contain a list of the files requested; the User can oberserve the shell, they see the files at the same time as you. Just acknowlege the fact that you have printed the list).'}),
+ Document(page_content='List the files and directories', metadata={'action': 'Print files and directories', 'guide': '# Print files and directories\n\nWhen the User ask for the files and directories of a parent directory to be printed, use the `shell` command `ls` to do it and then give an acknowledgment of your actions in your final answer (Your final answer should never contain a list of the files requested; the User can oberserve the shell, they see the files at the same time as you. Just acknowlege the fact that you have printed the list).'}),
+...
+```
+
+Finally, it will use the `RAG` technique to retrieve the most relevant guide for the user query at runtime.
+
+```text
+Hey give me the time please -> Tell Local Time
+What date is it? -> Tell Local Date
+List my files -> Print files and directories
+Where are we? -> Tell Local Time
+assistant -> Addressing the User by Name
+the screen should be cleaned. -> Clearing the Screen or Starting Anew
+```
+
+Notice how it work nicely for most of the queries exept for 'Where are we?'. This is because the guidebook is not exhaustive and the guide for this intent does not contain a similiar intent example. This could easily be fixed by adding more intent examples for this action in the guidebook.
+
+Our AGIRetriver will return the guide for the most similar intent example relative to the user query.
+
+Allowing us to retrieve the most relevant guide for the user query at runtime.
