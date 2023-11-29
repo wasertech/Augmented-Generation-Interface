@@ -115,7 +115,7 @@ Please let me know if you need any further assistance.
 
 Interesting key points to note here:
 
-- The LLM fails to give an exhaustive list of the files (and directories) present in the current directory.
+- The LLM fails to give an exhaustive list of the files (and directories) present in the current directory (most likely because of the original tools' observation format).
 - The more files to list, the longer it takes to generate the output.
 
 ```text
