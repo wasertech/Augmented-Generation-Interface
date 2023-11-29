@@ -17,3 +17,4 @@ When the user inquires about the current working directory (or its current posit
 - "directory"
 - "direction"
 - "dir"
+- "echo ~"
