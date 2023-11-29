@@ -411,8 +411,9 @@ Keeping the limits of the LLM, the RAG technique and vector databases in mind, t
 ## How does it work?
 
 This project is composed of two parts:
-    - The Guidebook
-    - The Augmented Generation Interface Retrieval System
+
+- The Guidebook
+- The Augmented Generation Interface Retrieval System
   
 ### The Guidebook
 
