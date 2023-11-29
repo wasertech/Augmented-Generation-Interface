@@ -113,7 +113,10 @@ Here are the files and directories in the current directory:
 Please let me know if you need any further assistance.
 ```
 
-The more files to list, the longer it takes to generate the output.
+Interesting key points to note here:
+
+- The LLM files gives an exhaustive list of the files (and directories) present in the current directory.
+- The more files to list, the longer it takes to generate the output.
 
 ```text
 CPU times: user 5.87 ms, sys: 0 ns, total: 5.87 ms
@@ -308,7 +311,9 @@ CPU times: user 2.46 ms, sys: 3.06 ms, total: 5.52 ms
 Wall time: 1.59 s
 ```
 
-The LLM gives the same answer as before and will keep doing so.
+Interesting key point to note here:
+
+- The LLM gives the same answer as before and will keep doing so.
 
 ### With AGI
 
@@ -393,7 +398,9 @@ CPU times: user 3.02 ms, sys: 1.19 ms, total: 4.21 ms
 Wall time: 2.03 s
 ```
 
-The LLM answers something different and should keep doing so.
+Interesting key point to note here:
+
+- The LLM answers something different and should keep doing so.
 
 ### Consequences
 
