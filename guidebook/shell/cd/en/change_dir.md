@@ -19,7 +19,7 @@ When the user ask you to change the current working directory, use the `cd` tool
 - "cd .."
 - "cd ../.."
 - "go back to the parent directory"
-- "Thanks can move into my Projets/Assistant/src3 dir please"
+- "Thanks can move into my dir please"
 - "move up one directory"
 - "move up two directories"
 - "lets go into the root directory"
@@ -30,3 +30,4 @@ When the user ask you to change the current working directory, use the `cd` tool
 - "I want to move in my Pictures directory"
 - "Can you navigate into my Movies folder ?"
 - "Go into Music now."
+- "You can go in "
