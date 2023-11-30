@@ -34,3 +34,4 @@ When the user ask you to change the current working directory, use the `cd` tool
 - "please go at home"
 - "lets go into my home dir please then"
 - "parent/dir/subdir"
+- "Please go into my home dir"
