@@ -16,4 +16,3 @@ When the user ask you to read a file, use the `cat` tool to read the file and pr
 - "Read the file out loud for me please."
 - "Read the file out loud to me."
 - "Read the file out loud to me please."
- 
