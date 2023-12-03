@@ -4,7 +4,7 @@ This script uses interpres (Translator) to translate sentences.
 Please make sure you have installed it in the current environment before running this script.
 """
 
-import sys
+import os, sys
 from glob import glob
 
 try:
@@ -69,6 +69,34 @@ def filter_for_translation(examples: list, exclude: list):
         list: Filtered list of intent examples.
     """
     return [i for i in examples if i not in exclude]
+
+def make_dir(path: str):
+    """Creates directories"""
+    if not os.path.exists(path):
+        os.makedirs(path, exist_ok=True)
+
+def save_to_file(guidebook_dict: dict, lang: str):
+    """Save translated guidebook to file.
+
+    Args:
+        guidebook_dict (dict): Guidebook dictionary.
+        lang (str): Language to save to.
+    """
+    for fname, content in guidebook_dict.items():
+        iname = content[lang]['intent']
+        fpath = f"guidebook/{iname}/{lang}/{fname}.md"
+        print(f"Saving {fpath}...", end="")
+        
+        make_dir(fpath)
+        
+        with open(fpath, "w", encoding="utf-8") as mdf:
+            mdf.write(f"# {content[lang]['action']}\n\n")
+            mdf.write(f"{content[lang]['guide']}\n\n")
+            mdf.write("## Intent Examples\n\n")
+            for e in content[lang]['intent_examples']:
+                mdf.write(f"- {e}\n")
+            mdf.write("\n")
+        print("Done.")
 
 LANG = "en"
 print(f"Translating from {LANG.upper()}...", end="")
@@ -221,26 +249,6 @@ for intent, content in guidebook_dict.items():
         'intent_examples': list(set(translator.translate(intent_examples)))
     }
     print("Done.")
-
-def save_to_file(guidebook_dict: dict, lang: str):
-    """Save translated guidebook to file.
-
-    Args:
-        guidebook_dict (dict): Guidebook dictionary.
-        lang (str): Language to save to.
-    """
-    for fname, content in guidebook_dict.items():
-        iname = content[lang]['intent']
-        fpath = f"guidebook/{iname}/{lang}/{fname}.md"
-        print(f"Saving {fpath}...", end="")
-        with open(fpath, "w", encoding="utf-8") as mdf:
-            mdf.write(f"# {content[lang]['action']}\n\n")
-            mdf.write(f"{content[lang]['guide']}\n\n")
-            mdf.write("## Intent Examples\n\n")
-            for e in content[lang]['intent_examples']:
-                mdf.write(f"- {e}\n")
-            mdf.write("\n")
-        print("Done.")
 
 save_to_file(guidebook_dict, TRANS_LANG)
 
