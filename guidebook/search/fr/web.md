@@ -990,3 +990,4 @@ Lorsque l'utilisateur exprime le désir de rechercher le web, utilisez l'outil `
 - "comment dessiner les yeux"
 - "quand est l'élection présidentielle"
 - "quand est l'heure d'été"
+- "qui est le directeur actuel de la cia"
