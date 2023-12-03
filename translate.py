@@ -95,8 +95,8 @@ def save_to_file(guidebook_dict: dict, lang: str):
             mdf.write(f"{content[lang]['guide']}\n\n")
             mdf.write("## Intent Examples\n\n")
             for e in content[lang]['intent_examples']:
-                mdf.write(f"- {e}\n")
-            mdf.write("\n")
+                mdf.write(f'- "{e}"\n')
+            # mdf.write("\n")
         print("Done.")
 
 LANG = "en"
