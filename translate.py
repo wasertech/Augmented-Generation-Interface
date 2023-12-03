@@ -84,10 +84,11 @@ def save_to_file(guidebook_dict: dict, lang: str):
     """
     for fname, content in guidebook_dict.items():
         iname = content[lang]['intent']
-        fpath = f"guidebook/{iname}/{lang}/{fname}.md"
+        dpath = f"guidebook/{iname}/{lang}"
+        fpath = f"{dpath}/{fname}.md"
         print(f"Saving {fpath}...", end="")
         
-        make_dir(fpath)
+        make_dir(dpath)
         
         with open(fpath, "w", encoding="utf-8") as mdf:
             mdf.write(f"# {content[lang]['action']}\n\n")
