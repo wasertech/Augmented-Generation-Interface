@@ -220,7 +220,7 @@ for intent, content in guidebook_dict.items():
         'guide': translator.translate(guide)[0],
         'intent_examples': list(set(translator.translate(intent_examples)))
     }
-    print("Done.", end="\n"*2)
+    print("Done.")
 
 def save_to_file(guidebook_dict: dict, lang: str):
     """Save translated guidebook to file.
@@ -232,7 +232,7 @@ def save_to_file(guidebook_dict: dict, lang: str):
     for fname, content in guidebook_dict.items():
         iname = content[lang]['intent']
         fpath = f"guidebook/{iname}/{lang}/{fname}.md"
-        print(f"Saving {fpath}...")
+        print(f"Saving {fpath}...", end="")
         with open(fpath, "w", encoding="utf-8") as mdf:
             mdf.write(f"# {content[lang]['action']}\n\n")
             mdf.write(f"{content[lang]['guide']}\n\n")
@@ -240,6 +240,7 @@ def save_to_file(guidebook_dict: dict, lang: str):
             for e in content[lang]['intent_examples']:
                 mdf.write(f"- {e}\n")
             mdf.write("\n")
+        print("Done.")
 
 save_to_file(guidebook_dict, TRANS_LANG)
 
