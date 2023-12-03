@@ -1,6 +1,6 @@
 # Exiting the session or ending the conversation
 
-When the user expresses a desire to exit the session or end the conversation, use the `exit` tool to exit the session and print a message to let the user know that you can wait to see them soon.
+When the user expresses a desire to exit the session or end the conversation, use the `exit` tool to exit the session and print a message to let the user know that you can't wait to see them soon.
 
 ## Intent Examples
 
