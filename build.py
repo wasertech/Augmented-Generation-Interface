@@ -15,11 +15,11 @@ def get_guidebook_content():
     """
     Returns a list of all markdown files in the guidebook directory.
     """
-    return [open(file, 'r').read() for file in get_guidebook_files()]
+    return [open(file, 'r', encoding='utf-8').read() for file in get_guidebook_files()]
 
 
 guides = get_guidebook_content()
 guidebook = Dataset.from_dict({"guide": guides})
 
-print("Pushing GuidBook to HuggingFace Datasets...")
+print("Pushing GuidBook to HuggingFace Hub as Dataset...")
 guidebook.push_to_hub("AGI")
