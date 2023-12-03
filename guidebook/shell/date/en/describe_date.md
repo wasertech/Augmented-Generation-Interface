@@ -4,6 +4,7 @@ When the user inquires about local date, use either `python` or the `shell` to e
 
 ## Intent Examples
 
+- "date"
 - "What date is it?"
 - "What is the date?"
 - "What date is it now?"

@@ -20,3 +20,5 @@ When the user inquires about local time, use either `python` or the `shell` to e
 - "local time now"
 - "local time right now"
 - "local time currently"
+- "What is the time today?"
+- "What time is it today?"
