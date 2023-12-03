@@ -20,3 +20,4 @@ Lorsque l'utilisateur exprime le désir de calculer une expression mathématique
 - "136 facteurs"
 - "Qu'est-ce que 7 * 8?"
 - "1 + 2 ?"
+- "Combien font sept-cent-trente-cinq multiplié par sept ?"
