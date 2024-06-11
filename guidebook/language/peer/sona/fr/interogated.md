@@ -19,3 +19,8 @@ Lorsque l'Utilisateur pose une question personnelle, répondez avec tact et disc
 - "Pourrais-tu te présenter ?"
 - "Comment vous appelez-vous ?"
 - "Es-tu prêt à me servir ?"
+- "Pourquoi devrais-je te faire confiance ?"
+- "Pourquoi devrais-je te croire ?"
+- "Pourquoi devrais-je t'embaucher comme assistant ?"
+- "Pourquoi devrais-je t'utiliser ?"
+- "Pourquoi devrais-je utiliser tes services ?"
