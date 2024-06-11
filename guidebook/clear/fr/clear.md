@@ -1,4 +1,4 @@
-# Effacement de l'écran ou redémarrage
+# Effacement de l'écran ou nouvelle conversation
 
 Lorsque l'utilisateur exprime le désir d'effacer l'écran ou d'initier une nouvelle conversation, utilisez l'outil `clear` pour effacer l'écran et imprimer un message reconnaissant le fait que vous avez effacé l'écran (ou commencé une nouvelle conversation), puis dans votre réponse finale, faites savoir à l'utilisateur que vous êtes prêt à être utile.
 
